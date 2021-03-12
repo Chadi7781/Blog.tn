@@ -1,9 +1,16 @@
-const express = require('express');
 
-const app = express();
-const mongoose  = require('mongoose');
-const config = require('./config/database')
-const path = require('path')
+
+/* Import node modules*/
+const express = require('express');//fast unopinionted, minimalist web framework for node+
+const bodyParser = require('body-parser');
+const app = express();//initiliaze express application
+const mongoose  = require('mongoose');//node tool for mongodb
+const config = require('./config/database')//Mongoose config
+const path = require('path')//Nodejs package for file paths
+const authentification = require('./routes/authentification.routes');
+
+
+/* database connection start*/
 mongoose.Promise = global.Promise;
 
 mongoose.connect(config.uri, (err)=> {
@@ -11,10 +18,17 @@ mongoose.connect(config.uri, (err)=> {
         console.log("could not connect to database", err)
     else
         console.log( "connect to database \n")
+    });
+/* database connection end*/
 
-});
+/*Body parser start */
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : false}));
+/*Body parser end*/
 
 app.use(express.static(__dirname+'/client/dist/'))
+
+app.use('/authentification',authentification);
 app.get('*', (req, res )=> {
     res.sendFile(path.join(__dirname + '/client/dist/index.html'));
 })
