@@ -1,43 +1,96 @@
-<div class="box">
-  <h1 id="logintoregister">Login</h1>
-  <div class="group">
-    <input class="inputMaterial" type="text" required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label>Username</label>
-  </div>
-  <div class="group">
-    <input class="inputMaterial" type="password" required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label>Password</label>
-  </div>
-  <div class="group show">
-    <input class="inputMaterial" type="password" required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label>Confirm Password</label>
-  </div>
-  <div class="group show">
-    <input class="inputMaterial" type="text" required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label>Nome</label>
-  </div>
-  <div class="group show">
-    <input class="inputMaterial" type="text" required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label>Cognome</label>
-  </div>
-  <div class="group show">
-    <input class="inputMaterial" type="text" required>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label>Email</label>
-  </div>
 
-  <button id="buttonlogintoregister">Login</button>
+<!-- Login 2 start -->
+<div class="login-2">
+  <div class="container-fluid">
+    <div class="row login-box">
+      <div class="col-lg-6 align-self-center pad-0 form-section">
+        <div class="form-inner">
+          <a href="login-2.html" class="logo">
+          </a>
+          <h3>Join Us Now</h3>
+          <form [formGroup]="form" (ngSubmit)="onRegisterSubmit()">
+            <div class="form-group form-box">
+                <div [ngClass]="{'has-error':(form.controls.username.errors && form.controls.username.dirty),
+                'has-success':!form.controls.username.errors}">
 
-  <p id="plogintoregister">Forgot Password</p><p id="textchange" onclick="register()"> Create Account</p>
+                  <input type="text" name="username" class="input-text" placeholder="username" formControlName="username"/>
+                  <ul class="help-block">
+                    <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty" style="color:red;">This field is required!!</li>
+
+                  </ul>
+                </div>
+
+            </div>
+            <div class="form-group form-box">
+              <div [ngClass]="{'has-error':(form.controls.email.errors && form.controls.email.dirty),
+                'has-success':!form.controls.email.errors}">
+
+              <input type="email" name="email" class="input-text" placeholder="Email Address" formControlName="email">
+                <ul class="help-block">
+                  <li *ngIf="form.controls.email.errors?.required && form.controls.email  .dirty" style="color:red;">This field is required!!</li>
+
+                </ul>
+            </div>
+            </div>
+            <div class="form-group form-box clearfix">
+              <div [ngClass]="{'has-error':(form.controls.password.errors && form.controls.password.dirty),
+                'has-success':!form.controls.password.errors}">
+                <input type="password" name="Password" class="input-text" placeholder="Password" formControlName="password">
+                <ul class="help-block">
+                  <li *ngIf="form.controls.password.errors?.required && form.controls.password  .dirty" style="color:red;">This field is required!!</li>
+
+                </ul>
+              </div>
+              </div>
+
+            <div class="form-group form-box clearfix">
+              <div [ngClass]="{'has-error':(form.controls.confirmPassword.errors && form.controls.confirmPassword.dirty),
+                'has-success':!form.controls.confirmPassword.errors}">
+                <input type="password" name="confirmPassword" class="input-text" placeholder="Confirm Password" formControlName="confirmPassword">
+                <ul class="help-block">
+                  <li *ngIf="form.controls.confirmPassword.errors?.required && form.controls.confirmPassword  .dirty" style="color:red;">This field is required!!</li>
+
+                </ul>
+              </div>
+              </div>
+            <div class="form-group checkbox clearfix">
+              <div class="checkbox clearfix">
+                <div class="form-check checkbox-theme">
+                  <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                  <label class="form-check-label" for="rememberMe">
+                    I agree to the<a href="#" class="terms">terms of service</a>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group clearfix">
+              <button type="submit" class="btn-md btn-theme btn-block">Login</button>
+            </div>
+            <div class="extra-login clearfix">
+              <span>Or Login With</span>
+            </div>
+          </form>
+          <div class="clearfix"></div>
+          <div class="social-list">
+            <a href="#" class="facebook-bg">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#" class="twitter-bg">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#" class="google-bg">
+              <i class="fa fa-google"></i>
+            </a>
+            <a href="#" class="linkedin-bg">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </div>
+          <p>Already a member? <a href="login-2.html">Login here</a></p>
+        </div>
+      </div>
+      <div class="col-lg-6 bg-color-15 align-self-center pad-0 none-992 bg-img">
+        <img src="assets/img/img-3.png" alt="logo" class="w-100 img-fluid">
+      </div>
+    </div>
+  </div>
 </div>
