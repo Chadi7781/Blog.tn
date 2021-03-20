@@ -16,6 +16,13 @@
                   <input type="text" name="username" class="input-text" placeholder="username" formControlName="username"/>
                   <ul class="help-block">
                     <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty" style="color:red;">This field is required!!</li>
+                    <li *ngIf="form.controls.username.errors?.minlength ||
+                    form.controls.username.errors?.maxlength" style="color: red;">
+                      Username must be at least 3 characters but no more than 15
+                    </li>
+                    <li *ngIf="form.controls.username.errors?.validateUserName && form.controls.username.dirty" style="color: red;">
+                      Must not have  any special characters
+                    </li>
 
                   </ul>
                 </div>
@@ -23,12 +30,14 @@
             </div>
             <div class="form-group form-box">
               <div [ngClass]="{'has-error':(form.controls.email.errors && form.controls.email.dirty),
-                'has-success':!form.controls.email.errors}">
+                'has-success':!form.controls.email.errors}" >
 
               <input type="email" name="email" class="input-text" placeholder="Email Address" formControlName="email">
                 <ul class="help-block">
-                  <li *ngIf="form.controls.email.errors?.required && form.controls.email  .dirty" style="color:red;">This field is required!!</li>
-
+                  <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty" style="color:red;">This field is required!!</li>
+                  <li *ngIf="(form.controls.email.errors?.minlength || form.controls.email.errors?.maxlength)&&form.controls.dirty" style="color: red;">
+                    Minimum characters: 5, Maximum characters: 30
+                    <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty" style="color:red;">This must be a valid e-mail</li>
                 </ul>
             </div>
             </div>
@@ -38,18 +47,23 @@
                 <input type="password" name="Password" class="input-text" placeholder="Password" formControlName="password">
                 <ul class="help-block">
                   <li *ngIf="form.controls.password.errors?.required && form.controls.password  .dirty" style="color:red;">This field is required!!</li>
+                  <li *ngIf="form.controls.password.errors?.minlength ||
+                             form.controls.password.errors?.maxlength" style="color: red;">Minimum characters: 8, Maximum characters: 35</li>
+                  <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty" style="color: red;">Password must be at least 8 characters but no more than 35
 
+                  </li>
                 </ul>
               </div>
               </div>
 
             <div class="form-group form-box clearfix">
-              <div [ngClass]="{'has-error':(form.controls.confirmPassword.errors && form.controls.confirmPassword.dirty),
-                'has-success':!form.controls.confirmPassword.errors}">
+              <div [ngClass]="{'has-error':(form.controls.confirmPassword.errors && form.controls.confirmPassword.dirty) ||
+              (form.errors?.matchingPasswords && form.controls.confirmPassword.dirty),
+                'has-success':!form.controls.confirmPassword.errors && !form.errors?.matchingPasswords}">
                 <input type="password" name="confirmPassword" class="input-text" placeholder="Confirm Password" formControlName="confirmPassword">
                 <ul class="help-block">
-                  <li *ngIf="form.controls.confirmPassword.errors?.required && form.controls.confirmPassword  .dirty" style="color:red;">This field is required!!</li>
-
+                  <li *ngIf="form.controls.confirmPassword.errors?.required && form.controls.confirmPassword .dirty" style="color:red;">This field is required!!</li>
+                  <li *ngIf="form.errors?.matchingPasswords && form.controls.confirmPassword.dirty">Password do not match</li>
                 </ul>
               </div>
               </div>
