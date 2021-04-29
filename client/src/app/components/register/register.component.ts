@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   data : any;
   submit = false;
   constructor(
-    private formBuilder : FormBuilder, private authService: AuthService) {
+    private formBuilder : FormBuilder, private authService: AuthService, private elementRef:ElementRef) {
     this.createForm();
   }
 
@@ -116,6 +116,10 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit(): void {
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "../assets/js/main.js";
+    this.elementRef.nativeElement.appendChild(s);
   }
 
 }
