@@ -12,10 +12,7 @@ exports.user_register = function (req, res) {
         if (!req.body.password) {
             res.json({success: false, message:"You must provide password!!"});
         }
-        else
-        if(!req.body.phone) {
-            res.json({success: false, message:"You must provide phone!!"});
-        }
+
         else {
 
 
@@ -59,7 +56,7 @@ exports.user_register = function (req, res) {
                         }
                     }
                     else {
-                        res.json({success: true, message:"User saved", user});
+                        res.json({success: true, message:"Account saved", user});
 
                     }
 

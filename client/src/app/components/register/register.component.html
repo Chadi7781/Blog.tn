@@ -1,4 +1,5 @@
 
+
 <!-- Login 2 start -->
 <div class="login-2">
   <div class="container-fluid">
@@ -8,6 +9,12 @@
           <a href="login-2.html" class="logo">
           </a>
           <h3>Join Us Now</h3>
+
+            <div class="row show-hide-message" style="display: block;padding: 20px 20px ;width: auto;">
+              <div [ngClass]="messageClass">
+                {{message}}
+            </div>
+          </div>
           <form [formGroup]="form" (ngSubmit)="onRegisterSubmit()">
             <div class="form-group form-box">
                 <div [ngClass]="{'has-error':(form.controls.username.errors && form.controls.username.dirty),

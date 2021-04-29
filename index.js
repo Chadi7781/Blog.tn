@@ -25,7 +25,11 @@ mongoose.connect(config.uri, (err)=> {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 /*Body parser end*/
+const cors = require('cors');
 
+app.use(cors({
+    origin:'http://localhost:4200'
+}))
 app.use(express.static(__dirname+'/client/dist/'))
 
 app.use('/authentification',authentification);
