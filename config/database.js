@@ -7,7 +7,7 @@ const hash = crypto.createHmac('sha256', secret)
 
 module.exports =
     {
-        uri:'mongodb://localhost:27017/'+this.db ,
+        uri:'mongodb://localhost:27017/blog' ,
         secret:hash,
         db:'blog'
     }
