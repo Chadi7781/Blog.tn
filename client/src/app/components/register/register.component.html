@@ -85,7 +85,7 @@
               </div>
             </div>
             <div class="form-group clearfix">
-              <button type="submit" class="btn-md btn-theme btn-block" >Register</button>
+              <button [disabled]="!form.valid || processing" type="submit" class="btn-md btn-theme btn-block" >Register</button>
             </div>
             <div class="extra-login clearfix">
               <span>Or Login With</span>
