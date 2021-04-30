@@ -10,7 +10,8 @@ import { RegisterComponent } from './components/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from "./services/auth.service";
 import {HttpClientModule} from "@angular/common/http";
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './header/header.component';
+import { ContainerComponent } from './components/container/container.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     DashboardComponent,
     RegisterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
