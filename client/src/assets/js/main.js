@@ -1,7 +1,24 @@
 
 /******************************************On Load Page Start**********************************************************/
 $(function () {
+
+  onScrollHeader();
 });
+
+/******************************************Header Start**********************************************************/
+  function onScrollHeader() {
+
+    window.addEventListener("scroll",function () {
+      var header = document.querySelector("header");
+      header.classList.toggle("sticky",window.scrollY >0);
+      alert(header);
+    })
+}
+
+
+/******************************************Header End**********************************************************/
+
+
 
 /******************************************On Load Page End**********************************************************/
 
