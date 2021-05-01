@@ -168,6 +168,7 @@ header {
 header .logo {
   position: relative;
   font-weight: 700;
+  color:var(--primary);
   text-decoration: none;
   font-size: 2em;
   text-transform: uppercase;
@@ -182,22 +183,31 @@ header ul {
   align-items: center;
 }
 header ul li {
+
   position: relative;
   list-style:none;
 
 }
 header ul li a {
   position: relative;
+  color:var(--primary);
   margin: 0 15px;
   text-decoration: none;
   font-weight: 500;
   transition: 0.6s;
 }
 
-header .sticky {
+ .sticky {
   padding: 5px 100px;
-  background: #000000;
+  background: var(--primary);
 
+}
+
+ .sticky .logo {
+   color:var(--white);
+ }
+ .sticky ul li a {
+  color: var(--white);
 }
 
 .hero-section {
@@ -207,6 +217,42 @@ header .sticky {
   background-size: cover  ;
 
 }
+
+#toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background: #6f42c1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  transition: 0.2s;
+
+}
+#toggle::before {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: #fff;
+  transform: translateY(-5px);
+  transition: 0.2s;
+}
+
+#toggle::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: #fff;
+  transform: translateY(5px);
+  transition: 0.2s;
+}
+
+/**End Header*****/
 
 
 
@@ -720,12 +766,12 @@ header .sticky {
 
 }
 
-.hero-section .div-chadi-1 {
-  display: inline-block;
-  margin-top: 10%;
-  margin-left:0;
-  margin-right:0;
-  margin-bottom: 0;
+.hero-section .hero-shape .div-chadi-1 {
+  position: relative;
+  top: 100px;
+  left: 100px;
+  right: 0;
+  bottom: 100%;
 
 }
 .hero-section .hero-shape img {

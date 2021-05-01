@@ -1,22 +1,30 @@
 
 /******************************************On Load Page Start**********************************************************/
 $(function () {
-
-  onScrollHeader();
+  var toggle = document.getElementById("toggle");
+  alert(toggle)
 });
 
 /******************************************Header Start**********************************************************/
-  function onScrollHeader() {
 
-    window.addEventListener("scroll",function () {
-      var header = document.querySelector("header");
-      header.classList.toggle("sticky",window.scrollY >0);
-      alert(header);
-    })
-}
-
+window.addEventListener("scroll",function () {
+  var header = document.querySelector("header");
+  header.classList.toggle("sticky",window.scrollY >0);
+  console.log("hi header =="+header.childNodes.length);
+})
 
 /******************************************Header End**********************************************************/
+
+/******************************************Navbar End**********************************************************/
+var toggle = document.getElementById("toggle");
+toggle.onclick = function () {
+  toggle.classList.toggle('active');
+  alert("hi");
+}
+
+/******************************************Navbar End**********************************************************/
+
+
 
 
 
